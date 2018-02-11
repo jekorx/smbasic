@@ -31,7 +31,7 @@ public class DruidDataSourceConfig {
 	 * @param properties
 	 * @return DruidDataSource
 	 */
-	@Bean
+	@Bean(destroyMethod = "close", initMethod = "init")
 	@ConfigurationProperties("spring.datasource.druid")
 	public DruidDataSource dataSource(DataSourceProperties properties) {
 		
@@ -55,13 +55,13 @@ public class DruidDataSourceConfig {
 	/**
 	 * 注册一个StatViewServlet
 	 */
-	@Value("${druid.view.allow}")
+	@Value("${druid-custom.view.allow}")
     private String allow;
-	@Value("${druid.view.deny}")
+	@Value("${druid-custom.view.deny}")
 	private String deny;
-	@Value("${druid.view.username}")
+	@Value("${druid-custom.view.username}")
 	private String username;
-	@Value("${druid.view.password}")
+	@Value("${druid-custom.view.password}")
 	private String password;
 	@Bean
 	public ServletRegistrationBean druidStatViewServlet() {

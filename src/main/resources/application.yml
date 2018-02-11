@@ -2,7 +2,7 @@ server:
   port: 8008
   context-path: /smbasic
 # 自定义druid属性
-druid:
+druid-custom:
   view:
     # druid StatViewServlet host黑白名单，用户名密码
     # deny优先级高于allow

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.boot.entity.Area;
 import com.spring.boot.service.AreaService;
+import com.spring.boot.utils.Result;
+import com.spring.boot.utils.ResultUtil;
 
 @RestController
 @RequestMapping("/app/v1/")
@@ -18,8 +20,8 @@ public class AreaController {
 	private AreaService areaService;
 	
 	@GetMapping("area")
-	public List<Area> list() {
-		return areaService.queryArea();
+	public Result<List<Area>> list() {
+		return ResultUtil.success(areaService.queryArea());
 	}
 	
 }
